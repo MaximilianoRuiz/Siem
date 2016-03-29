@@ -2,4 +2,16 @@
     <string name="app_name">Siem</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_principal">Home</string>
+
+    <string-array name="principal_menu">
+        <item>Home</item>
+        <item>Gente</item>
+        <item>Tiempo</item>
+        <item>Chat</item>
+    </string-array>
+
+    <string-array name="secondary_menu">
+        <item>Configuraciones</item>
+    </string-array>
+
 </resources>
