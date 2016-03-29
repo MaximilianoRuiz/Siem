@@ -6,9 +6,11 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.maxi.siem.R;
 
@@ -17,8 +19,8 @@ public class LateralMenuFragment extends Fragment {
     private ImageView ivUser;
     private ListView lvPrincipalMenu, lvSecondaryMenu;
 
-    String[] principalMenu;
-    String[] secondaryMenu;
+    private String[] principalMenu;
+    private String[] secondaryMenu;
 
     public LateralMenuFragment() {
     }
@@ -31,8 +33,6 @@ public class LateralMenuFragment extends Fragment {
         initValues();
 
         initWidget(view);
-
-
 
         return view;
     }
@@ -59,5 +59,23 @@ public class LateralMenuFragment extends Fragment {
         addActionListeners();
     }
 
-    private void addActionListeners() {}
+    private void addActionListeners() {
+        lvPrincipalMenu.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                inactiveButtonMessage();
+            }
+        });
+
+        lvSecondaryMenu.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                inactiveButtonMessage();
+            }
+        });
+    }
+
+    private void inactiveButtonMessage() {
+        Toast.makeText(getContext(), "Programadores Trabajando ...", Toast.LENGTH_LONG).show();
+    }
 }
