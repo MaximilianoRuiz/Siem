@@ -1,7 +1,8 @@
 package com.example.maxi.siem.fragment;
 
-import android.support.v4.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,8 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.maxi.siem.R;
+import com.example.maxi.siem.activity.InputActivity;
+import com.example.maxi.siem.activity.OutputActivity;
 
 public class PrincipalFragment extends Fragment {
 
@@ -40,14 +43,14 @@ public class PrincipalFragment extends Fragment {
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO
+                startActivity(new Intent(getContext(), InputActivity.class));
             }
         });
 
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO
+                startActivity(new Intent(getContext(), OutputActivity.class));
             }
         });
 
