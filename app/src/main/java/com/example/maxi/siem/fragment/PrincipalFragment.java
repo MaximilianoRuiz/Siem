@@ -12,10 +12,19 @@ import android.widget.Toast;
 import com.example.maxi.siem.R;
 import com.example.maxi.siem.activity.InputActivity;
 import com.example.maxi.siem.activity.OutputActivity;
+import com.example.maxi.siem.vo.Usuario;
+import com.firebase.client.DataSnapshot;
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
 
 public class PrincipalFragment extends Fragment {
 
     private Button btn1, btn2, btn3, btn4;
+
+    private Intent intent;
+    private Firebase firebase;
+    private Usuario usuario;
 
     public PrincipalFragment() {
     }
@@ -25,9 +34,26 @@ public class PrincipalFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_principal, container, false);
 
+        initValues();
+
         initView(view);
 
         return view;
+    }
+
+    private void initValues() {
+        firebase = new Firebase(getResources().getString(R.string.firebase_url));
+
+        firebase.child("usuario1").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                usuario = snapshot.getValue(Usuario.class);
+            }
+
+            @Override
+            public void onCancelled(FirebaseError error) {
+            }
+        });
     }
 
     private void initView(View view) {
@@ -43,14 +69,22 @@ public class PrincipalFragment extends Fragment {
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getContext(), InputActivity.class));
+                intent = new Intent(getContext(), InputActivity.class);
+                intent.putExtra("usuario", usuario);
+                if (usuario != null) {
+                    startActivity(intent);
+                }
             }
         });
 
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getContext(), OutputActivity.class));
+                intent = new Intent(getContext(), OutputActivity.class);
+                intent.putExtra("usuario", usuario);
+                if (usuario != null) {
+                    startActivity(intent);
+                }
             }
         });
 
