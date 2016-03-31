@@ -30,43 +30,27 @@ tools:context=".activity.LogginActivity">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/TextView"
-            android:text="Hora de Entrada: 00:00hs"
+            android:id="@+id/tvEntrada"
+            android:text="Entrada: 00:00hs"
             android:textSize="14pt"
-            android:layout_gravity="center"
             android:gravity="center"
-            android:layout_margin="9dp"
-
-            />
+            android:layout_margin="9dp"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/TextView1"
-            android:text="Hora de Salida: 00:00hs"
+            android:id="@+id/tvSalida"
+            android:text="Salida: 00:00hs"
             android:textSize="14pt"
-            android:layout_gravity="center"
             android:gravity="center"
             android:layout_margin="9dp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/TextView2"
-            android:layout_gravity="center_horizontal"
-            android:text="Consumo en Hs: 01:21hs"
+            android:text="Consumo en hs:"
             android:textSize="18pt"
-            android:gravity="center"
-            android:layout_margin="9dp"
-            android:textColor="#ff0000" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/TextView3"
-            android:layout_gravity="center_horizontal"
-            android:text="Saldo a Pagar: $06.05"
-            android:textSize="18pt"
+            android:layout_gravity="center"
             android:gravity="center"
             android:layout_margin="9dp"
             android:textColor="#ff0000"/>
@@ -74,12 +58,48 @@ tools:context=".activity.LogginActivity">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/TextView4"
-            android:layout_gravity="center_horizontal"
-            android:text="Saldo Disponible: $96.75"
+            android:id="@+id/tvConsumo"
+            android:text="03:00 hs"
             android:textSize="18pt"
             android:gravity="center"
+            android:textColor="#ff0000"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Saldo a Pagar:"
+            android:textSize="18pt"
+            android:layout_gravity="center"
+            android:gravity="center"
             android:layout_margin="9dp"
+            android:textColor="#ff0000"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvSaldoAPagar"
+            android:text="$10.00"
+            android:textSize="18pt"
+            android:gravity="center"
+            android:textColor="#ff0000"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Saldo disponible:"
+            android:textSize="18pt"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_margin="9dp"
+            android:textColor="#80AC2D"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvSaldo"
+            android:text="$102.08"
+            android:textSize="18pt"
+            android:gravity="center"
             android:textColor="#80AC2D"/>
 
     </LinearLayout>

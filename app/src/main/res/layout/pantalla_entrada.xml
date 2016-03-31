@@ -31,20 +31,23 @@ tools:context=".activity.LogginActivity">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/TextView"
-            android:text="Hora de Entrada: 00:00hs"
+            android:text="Hora de Entrada:"
             android:textSize="14pt"
-            android:layout_gravity="center"
             android:gravity="center"
-            android:layout_margin="9dp"
-
-            />
+            android:layout_margin="9dp"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/TextView1"
-            android:text="Saldo disponible: $102.08"
+            android:id="@+id/tvHoraEntrada"
+            android:text="00:00hs"
+            android:textSize="14pt"
+            android:gravity="center" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Saldo disponible:"
             android:textSize="18pt"
             android:layout_gravity="center"
             android:gravity="center"
@@ -54,9 +57,16 @@ tools:context=".activity.LogginActivity">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/TextView2"
-            android:layout_gravity="center_horizontal"
-            android:text="Máximo en HS: 20:00hs"
+            android:id="@+id/tvSaldo"
+            android:text="$102.08"
+            android:textSize="18pt"
+            android:gravity="center"
+            android:textColor="#80AC2D"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Máximo en hs:"
             android:textSize="18pt"
             android:gravity="center"
             android:layout_margin="9dp"
@@ -65,22 +75,22 @@ tools:context=".activity.LogginActivity">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/TextView3"
+            android:id="@+id/tvMaxHora"
+            android:text="20:00hs"
+            android:textSize="18pt"
+            android:gravity="center"
+            android:textColor="#80AC2D"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvCostoHora"
             android:layout_gravity="center_horizontal"
             android:text="Costo Hora: $5"
             android:textSize="18pt"
+            android:layout_margin="12dp"
             android:gravity="center"
-            android:layout_margin="9dp"
             android:textColor="#ff0000"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textClock"
-            android:text="00:00 hs"
-            android:layout_gravity="center_horizontal"
-            android:textSize="20pt"
-            android:layout_margin="9dp"/>
 
     </LinearLayout>
 

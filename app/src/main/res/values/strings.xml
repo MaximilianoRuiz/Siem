@@ -4,16 +4,17 @@
     <string name="title_activity_principal">Home</string>
 
     <string name="firebase_url">https://siem.firebaseio.com/</string>
+    <string name="costo_hora">5</string>
 
     <string-array name="principal_menu">
         <item>Home</item>
-        <item>Gente</item>
-        <item>Tiempo</item>
-        <item>Chat</item>
+        <item>Estado</item>
+        <item>Credito</item>
+        <item>Ayuda y Comentarios</item>
     </string-array>
 
     <string-array name="secondary_menu">
-        <item>Configuraciones</item>
+        <item>Ajustes</item>
     </string-array>
 
 </resources>

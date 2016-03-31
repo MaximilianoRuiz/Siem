@@ -4,4 +4,10 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorSecondary">#7986CB</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="colorEntrada">#5CB85C</color>
+    <color name="colorSalida">#D9534F</color>
+    <color name="colorCredito">#F0AD4E</color>
+    <color name="colorInformes">#5BC0DE</color>
+
 </resources>
