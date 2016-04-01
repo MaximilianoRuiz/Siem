@@ -19,7 +19,7 @@ public class CalculateUtils {
 
         double r = saldo / costo;
 
-        return Double.toString(r) + " hs";
+        return Double.toString(r);
     }
 
     public static String getConsumoHoras(String entrada, String salida) {

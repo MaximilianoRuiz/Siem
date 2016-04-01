@@ -53,8 +53,8 @@ public class InputActivity extends AppCompatActivity {
         String maxHora = CalculateUtils.getMaxTiempo(usuario.getSaldo(), costoHora);
 
         tvHoraEntrada.setText(localTime + " hs");
-        tvSaldo.setText("$ " + usuario.getSaldo());
-        tvMaxHora.setText(maxHora);
+        tvSaldo.setText("$ " + FormatUtils.getDoubleFormat(usuario.getSaldo()));
+        tvMaxHora.setText(FormatUtils.getDoubleFormat(maxHora) + " hs");
         tvCostoHora.setText("Costo por hora: $ " + costoHora);
 
         firebase.child("usuario1/entrada").setValue(localTime);
