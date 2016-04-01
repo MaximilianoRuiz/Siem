@@ -50,7 +50,7 @@ public class InputActivity extends AppCompatActivity {
     private void setValues() {
         String localTime = FormatUtils.getLocalTime();
         String costoHora = getResources().getString(R.string.costo_hora);
-        String maxHora = CalculateUtils.getMaxTime(usuario.getSaldo(), costoHora);
+        String maxHora = CalculateUtils.getMaxTiempo(usuario.getSaldo(), costoHora);
 
         tvHoraEntrada.setText(localTime + " hs");
         tvSaldo.setText("$ " + usuario.getSaldo());
