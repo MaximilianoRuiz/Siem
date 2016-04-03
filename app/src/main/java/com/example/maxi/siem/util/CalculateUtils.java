@@ -1,10 +1,6 @@
 package com.example.maxi.siem.util;
 
 import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 
 public class CalculateUtils {
 
@@ -23,53 +19,38 @@ public class CalculateUtils {
         return Double.toString(r);
     }
 
-    public static String getConsumoHoras(String entrada, String salida) {
-        dateFormat = new SimpleDateFormat(HH_MM);
-        Date dEntrada = null;
-        Date dSalida = null;
-        Calendar primero = Calendar.getInstance();
-        Calendar segundo = Calendar.getInstance();
-
-        try {
-            dEntrada = dateFormat.parse(entrada);
-            dSalida = dateFormat.parse(salida);
-        } catch (ParseException e) {
-            dEntrada = Calendar.getInstance().getTime();
-            dSalida = Calendar.getInstance().getTime();
-        }
-
-        primero.setTime(dEntrada);
-        segundo.setTime(dSalida);
-
-        int segHora = segundo.get(Calendar.HOUR);
-        int priHora = primero.get(Calendar.HOUR);
-
-        int segMin = segundo.get(Calendar.MINUTE);
-        int priMin = primero.get(Calendar.MINUTE);
-
+    public static String getConsumoHoras(String sEntrada, String sSalida) {
         int hora, min;
-        String tiempoFinal = "00:00";
 
-        try {
-            primero.setTime(dateFormat.parse(entrada));
-            segundo.setTime(dateFormat.parse(salida));
+        int indexEntrada = sEntrada.indexOf(":");
+        int indexSalida = sSalida.indexOf(":");
 
-            hora = segHora - priHora;
+        String horaEntrada = sEntrada.substring(0, indexEntrada);
+        String horaSalida = sSalida.substring(0, indexSalida);
 
-            if (segMin < priMin) {
-                hora --;
-                min = 60 + segMin - priMin;
-            } else {
-                min = segMin - priMin;
-            }
+        String minEntrada = sEntrada.substring(indexEntrada + 1);
+        String minSalida = sSalida.substring(indexSalida + 1);
 
-            tiempoFinal = hora + ":" + min;
+        int iHoraEntrada = Integer.parseInt(horaEntrada);
+        int iHoraSalida = Integer.parseInt(horaSalida);
 
-        } catch (ParseException e) {
-            e.printStackTrace();
+        int iMinEntrada = Integer.parseInt(minEntrada);
+        int iMinSalida = Integer.parseInt(minSalida);
+
+        if(iHoraSalida < iHoraEntrada) {
+            hora = 12 + iHoraSalida - iHoraEntrada;
+        } else {
+            hora = iHoraSalida - iHoraEntrada;
         }
 
-        return tiempoFinal;
+        if(iMinSalida < iMinEntrada) {
+            min = 60 + iMinSalida - iMinEntrada;
+            hora --;
+        } else {
+            min = iMinSalida - iMinEntrada;
+        }
+
+        return FormatUtils.setDecimalFormat(hora) + ":" + FormatUtils.setDecimalFormat(min);
     }
 
     public static String getConsumo(String sHora, String sCosto) {
@@ -88,26 +69,25 @@ public class CalculateUtils {
         return Double.toString(saldo - consumo);
     }
 
-    private static String redondeo(String hora) {
-        Date parse = Calendar.getInstance().getTime();
-        try {
-            parse = dateFormat.parse(hora);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        Calendar c = Calendar.getInstance();
-        c.setTime(parse);
+    private static String redondeo(String sHora) {
+        int index = sHora.indexOf(":");
+        String hora = sHora.substring(0, index);
+        String min = sHora.substring(index + 1);
 
-        if(c.get(Calendar.MINUTE) > 30) {
-            int incremento = c.get(Calendar.HOUR) + 1;
-            c.set(Calendar.HOUR, incremento);
-        }
-        c.set(Calendar.MINUTE, 0);
+        int iHora = Integer.parseInt(hora);
+        int iMin = Integer.parseInt(min);
 
-        if(c.get(Calendar.HOUR) < 1 && c.get(Calendar.MINUTE) > 30) {
-            c.set(Calendar.HOUR, 1);
+        if(iMin > 30) {
+            iHora ++;
+        }
+        iMin = 0;
+
+        if(iHora < 1 && iMin > 30) {
+            iHora = 1;
         }
 
-        return dateFormat.format(c.getTime());
+        return iHora + ":" + iMin;
     }
+
+
 }

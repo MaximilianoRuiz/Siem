@@ -59,7 +59,7 @@ public class OutputActivity extends AppCompatActivity {
         tvSalida.setText("Salida: " + localTime + "hs");
         tvConsumo.setText(consumoHoras + " hs");
         tvSaldoAPagar.setText("$" + FormatUtils.getDoubleFormat(consumo));
-        tvSaldo.setText(FormatUtils.getDoubleFormat(saldo));
+        tvSaldo.setText("$ " + FormatUtils.getDoubleFormat(saldo));
 
         firebase.child("usuario1/salida").setValue(localTime);
         firebase.child("usuario1/saldo").setValue(saldo);

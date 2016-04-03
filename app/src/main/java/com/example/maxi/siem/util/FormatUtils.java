@@ -27,4 +27,12 @@ public class FormatUtils {
 
         return decimalFormat.format(Double.parseDouble(value));
     }
+
+    public static String setDecimalFormat(int value) {
+        if (value < 10) {
+            return  "0" + value;
+        } else {
+            return Integer.toString(value);
+        }
+    }
 }
