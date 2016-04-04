@@ -15,8 +15,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.maxi.siem.R;
-import com.example.maxi.siem.activity.InputActivity;
-import com.example.maxi.siem.activity.OutputActivity;
+import com.example.maxi.siem.dialog.InputDialog;
+import com.example.maxi.siem.dialog.OutputDialog;
 import com.example.maxi.siem.vo.Usuario;
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
@@ -97,24 +97,18 @@ public class PrincipalFragment extends Fragment {
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                intent = new Intent(getContext(), InputActivity.class);
-                intent.putExtra("usuario", usuario);
-                if (usuario != null) {
-                    saveStatus(true);
-                    startActivity(intent);
-                }
+                InputDialog inputDialog = new InputDialog(usuario);
+                inputDialog.show(getFragmentManager(), "Dialog");
+                saveStatus(true);
             }
         });
 
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                intent = new Intent(getContext(), OutputActivity.class);
-                intent.putExtra("usuario", usuario);
-                if (usuario != null) {
-                    saveStatus(false);
-                    startActivity(intent);
-                }
+                OutputDialog outputDialog = new OutputDialog(usuario);
+                outputDialog.show(getFragmentManager(), "Dialog");
+                saveStatus(false);
             }
         });
 

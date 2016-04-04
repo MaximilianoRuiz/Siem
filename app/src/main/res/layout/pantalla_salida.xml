@@ -3,56 +3,40 @@
 xmlns:app="http://schemas.android.com/apk/res-auto"
 xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
-android:layout_height="match_parent"
+android:layout_height="wrap_content"
 android:fitsSystemWindows="true"
 tools:context=".activity.LogginActivity">
-
-<android.support.design.widget.AppBarLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:theme="@style/AppTheme.AppBarOverlay">
-
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        app:popupTheme="@style/AppTheme.PopupOverlay" />
-
-</android.support.design.widget.AppBarLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_marginTop="60dp">
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/tvEntrada"
             android:text="Entrada: 00:00hs"
-            android:textSize="14pt"
+            android:textSize="12pt"
             android:gravity="center"
-            android:layout_margin="9dp"/>
+            android:layout_marginTop="9dp"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/tvSalida"
             android:text="Salida: 00:00hs"
-            android:textSize="14pt"
+            android:textSize="12pt"
             android:gravity="center"
-            android:layout_margin="9dp" />
+            android:layout_marginBottom="9dp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Consumo en hs:"
-            android:textSize="18pt"
+            android:textSize="14pt"
             android:layout_gravity="center"
             android:gravity="center"
-            android:layout_margin="9dp"
             android:textColor="#ff0000"/>
 
         <TextView
@@ -60,18 +44,18 @@ tools:context=".activity.LogginActivity">
             android:layout_height="wrap_content"
             android:id="@+id/tvConsumo"
             android:text="03:00 hs"
-            android:textSize="18pt"
+            android:textSize="14pt"
             android:gravity="center"
+            android:layout_marginBottom="9dp"
             android:textColor="#ff0000"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Saldo a Pagar:"
-            android:textSize="18pt"
+            android:textSize="14pt"
             android:layout_gravity="center"
             android:gravity="center"
-            android:layout_margin="9dp"
             android:textColor="#ff0000"/>
 
         <TextView
@@ -79,18 +63,18 @@ tools:context=".activity.LogginActivity">
             android:layout_height="wrap_content"
             android:id="@+id/tvSaldoAPagar"
             android:text="$10.00"
-            android:textSize="18pt"
+            android:textSize="14pt"
             android:gravity="center"
+            android:layout_marginBottom="9dp"
             android:textColor="#ff0000"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Saldo disponible:"
-            android:textSize="18pt"
+            android:textSize="14pt"
             android:layout_gravity="center"
             android:gravity="center"
-            android:layout_margin="9dp"
             android:textColor="#80AC2D"/>
 
         <TextView
@@ -98,8 +82,9 @@ tools:context=".activity.LogginActivity">
             android:layout_height="wrap_content"
             android:id="@+id/tvSaldo"
             android:text="$102.08"
-            android:textSize="18pt"
+            android:textSize="14pt"
             android:gravity="center"
+            android:layout_marginBottom="9dp"
             android:textColor="#80AC2D"/>
 
     </LinearLayout>
