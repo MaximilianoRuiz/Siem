@@ -15,6 +15,7 @@
         android:layout_height="100dp"
         android:layout_marginTop="100dp"
         android:layout_gravity="center"
+        android:visibility="visible"
         android:id="@+id/pbLoad"/>
 
     <TextView
@@ -23,6 +24,7 @@
         android:id="@+id/tvLoad"
         android:layout_gravity="center"
         android:gravity="center"
+        android:visibility="visible"
         android:text="Cargando ..."/>
 
     <LinearLayout
@@ -163,6 +165,44 @@
 
         </LinearLayout>
 
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/llLastButtons"
+        android:visibility="gone"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="3dp"
+            android:background="@drawable/home"/>
+
+        <ImageButton
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="3dp"
+            android:background="@drawable/gente"/>
+
+        <ImageButton
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="3dp"
+            android:background="@drawable/tiempo"/>
+
+        <ImageButton
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="3dp"
+            android:background="@drawable/chat"/>
 
     </LinearLayout>
 

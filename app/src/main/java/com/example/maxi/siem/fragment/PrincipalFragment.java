@@ -26,7 +26,7 @@ import com.firebase.client.ValueEventListener;
 public class PrincipalFragment extends Fragment {
 
     private Button btn1, btn2, btn3, btn4;
-    private LinearLayout llFirstButtons, llSedondButtons;
+    private LinearLayout llFirstButtons, llSedondButtons, llLastButtons;
     private ProgressBar pbLoad;
     private TextView tvLoad;
 
@@ -63,6 +63,7 @@ public class PrincipalFragment extends Fragment {
                 tvLoad.setVisibility(View.GONE);
                 llFirstButtons.setVisibility(View.VISIBLE);
                 llSedondButtons.setVisibility(View.VISIBLE);
+                llLastButtons.setVisibility(View.VISIBLE);
             }
 
             @Override
@@ -84,6 +85,7 @@ public class PrincipalFragment extends Fragment {
 
         llFirstButtons = (LinearLayout) view.findViewById(R.id.llFirstButtons);
         llSedondButtons = (LinearLayout) view.findViewById(R.id.llSecondButtons);
+        llLastButtons = (LinearLayout) view.findViewById(R.id.llLastButtons);
         pbLoad = (ProgressBar) view.findViewById(R.id.pbLoad);
         tvLoad = (TextView) view.findViewById(R.id.tvLoad);
 
@@ -115,19 +117,19 @@ public class PrincipalFragment extends Fragment {
         btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                inactiveButtonMessage();
+                inactiveButtonMessage(getView());
             }
         });
 
         btn4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                inactiveButtonMessage();
+                inactiveButtonMessage(getView());
             }
         });
     }
 
-    private void inactiveButtonMessage() {
+    public void inactiveButtonMessage(View view) {
         Toast.makeText(getContext(), "Programadores Trabajando ...", Toast.LENGTH_LONG).show();
     }
 
