@@ -1,7 +1,6 @@
 package com.example.maxi.siem.fragment;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -30,7 +29,7 @@ public class PrincipalFragment extends Fragment {
     private ProgressBar pbLoad;
     private TextView tvLoad;
 
-    private Intent intent;
+    private Bundle bundle;
     private Firebase firebase;
     private Usuario usuario;
     private SharedPreferences prefs;
@@ -53,6 +52,7 @@ public class PrincipalFragment extends Fragment {
     }
 
     private void initValues() {
+        bundle = new Bundle();
         firebase = new Firebase(getResources().getString(R.string.firebase_url));
 
         firebase.child("usuario1").addValueEventListener(new ValueEventListener() {
@@ -63,7 +63,7 @@ public class PrincipalFragment extends Fragment {
                 tvLoad.setVisibility(View.GONE);
                 llFirstButtons.setVisibility(View.VISIBLE);
                 llSedondButtons.setVisibility(View.VISIBLE);
-                llLastButtons.setVisibility(View.VISIBLE);
+//                llLastButtons.setVisibility(View.VISIBLE);
             }
 
             @Override
@@ -99,7 +99,9 @@ public class PrincipalFragment extends Fragment {
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                InputDialog inputDialog = new InputDialog(usuario);
+                InputDialog inputDialog = new InputDialog();
+                bundle.putSerializable("usuario", usuario);
+                inputDialog.setArguments(bundle);
                 inputDialog.show(getFragmentManager(), "Dialog");
                 saveStatus(true);
             }
@@ -108,7 +110,9 @@ public class PrincipalFragment extends Fragment {
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                OutputDialog outputDialog = new OutputDialog(usuario);
+                OutputDialog outputDialog = new OutputDialog();
+                bundle.putSerializable("usuario", usuario);
+                outputDialog.setArguments(bundle);
                 outputDialog.show(getFragmentManager(), "Dialog");
                 saveStatus(false);
             }

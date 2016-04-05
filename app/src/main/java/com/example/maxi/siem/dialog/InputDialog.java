@@ -24,9 +24,6 @@ public class InputDialog extends DialogFragment {
     private Usuario usuario;
     private Firebase firebase;
 
-    public InputDialog(Usuario usuario) {
-        this.usuario = usuario;
-    }
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -51,6 +48,7 @@ public class InputDialog extends DialogFragment {
     }
 
     private void initValue() {
+        usuario = (Usuario) getArguments().getSerializable("usuario");
         firebase = new Firebase(getResources().getString(R.string.firebase_url));
     }
 
